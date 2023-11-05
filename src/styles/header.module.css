@@ -1,0 +1,15 @@
+
+header {
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sectionLogo img {
+    width: 55px;
+}
+
+.sectionTheme img {
+    width: 30px;
+}
