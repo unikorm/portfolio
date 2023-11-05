@@ -1,7 +1,7 @@
 
 html {
-    background: #2a1b3d;
-    color: #a4b3b6;
+    background: #2a1b3d;   /*  #2a1b3d - dark     #a9c25d7e - light  */
+    color: #a4b3b6;      /*  #a4b3b6 - dark     #39395f - light  */
 }
 
 body {

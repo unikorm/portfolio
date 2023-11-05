@@ -1,0 +1,19 @@
+
+.headSection {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.25rem;
+}
+
+.headSection img {
+    width: 7rem;
+    border-radius: 50%;
+}
+
+.headSection h3 {
+    margin: 1rem 0 0;
+}
+
+.headSection p {
+    margin: 0;
+}

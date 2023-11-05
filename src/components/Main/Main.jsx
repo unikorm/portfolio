@@ -1,7 +1,9 @@
 
+import Head from "./Head";
+
 const Main = () => {
     return (
-        <p>here will be whole main site content</p>
+        <Head />
     );
 };
 
