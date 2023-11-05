@@ -1,7 +1,7 @@
 
 const Main = () => {
     return (
-        <p>main</p>
+        <p>here will be whole main site content</p>
     );
 };
 

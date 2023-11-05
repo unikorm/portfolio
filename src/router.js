@@ -1,5 +1,5 @@
 
-import Main from "./components/Main/Main";
+import Main from "./components/main/Main";
 import Root from "./components/Root";
 import ErrorPage from "./pages/ErrorPage";
 
@@ -17,12 +17,19 @@ const router = createBrowserRouter([
                     {
                         index: true,
                         element: <Main/>,
+                    },
+                    {
+                        // here will be About component (page)
+                    },
+                    {
+                        // here will be Blog component (but for start not, I will be having only few blog posts on main site)
+                    },
+                    {
+                        // here will be the most exciting stuff here like game and funny APIs things and more I hope...
                     }
-                ]
-            }
-        ]
-
-
+                ],
+            },
+        ],
     },
 ]);
 
