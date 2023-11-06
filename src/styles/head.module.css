@@ -33,11 +33,11 @@
     font-size: .8rem;
 }
 
-.headSection article {
-    margin: 2.5rem 0 0;
+.articleAbout {
+    margin: 2.45rem 0 0;
 }
 
-.headSection article p {
+.articleAbout p {
     margin: 0;
     font-size: .89rem;
     line-height: 1.25rem;
@@ -47,4 +47,24 @@
 .textHight {
     font-family: 'Xanh Mono', monospace;
     font-size: 1rem;
+}
+
+.articleMenu {
+    margin: 2.25rem 0 0;
+}
+
+.articleMenu a {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    color: inherit;
+}
+
+.articleMenu p {
+    font-size: .8rem;
+}
+
+.articleMenu img {
+    width: 1rem;
+    margin: 0;
 }

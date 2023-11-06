@@ -2,8 +2,10 @@
 import styles from "../../styles/head.module.css";
 import profilePhoto from "../../images/profile.webp";
 import { token } from "../../privat";
+import pngArrow from "../../images/arrow-24.png";
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Head = () => {
 
@@ -56,9 +58,15 @@ const Head = () => {
                 <p><span className={styles.spanContributions}>{contributions}</span> contributions on GitHub btw...</p>
             : <p></p>
             }
-            <article>
+            <article className={styles.articleAbout}>
                 <p>Hi and Welcome my fellow readers on my personal website. it's pleasure to have you here. i'm aspiring <span className={styles.textHight}>frontend/web developer</span>, who wants to build something what works mainly with <span className={styles.textHight}>JS</span>, <span className={styles.textHight}>React</span> and <span className={styles.textHight}>CSS</span>, but in my great future i want work with <span className={styles.textHight}>tailwindCSS</span>, <span className={styles.textHight}>NEXT.js</span> or <span className={styles.textHight}>TypeScript</span> and of course, much more...</p>
             </article>
+            <article className={styles.articleMenu}>
+                <Link to="/"><img src={pngArrow} alt="arrow" /><p>ways to connect</p></Link>
+                <Link to="/"><img src={pngArrow} alt="arrow" /><p>about myself</p></Link>
+                <Link to="/"><img src={pngArrow} alt="arrow" /><p>projects</p></Link>
+            </article>
+
         </section>
     );
 };
