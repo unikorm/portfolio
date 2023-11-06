@@ -14,7 +14,7 @@
 
 .headSection h3 {
     margin: 3.85rem 0 0;
-    font-size: 1.99rem;
+    font-size: 2.05rem;
 }
 
 .headSection p {
@@ -25,7 +25,11 @@
 
 .headSection article {
     margin: 2.35rem 0 0;
-    font-size: 1.1rem;
+}
+
+.headSection article p {
+    margin: 0;
+    font-size: .85rem;
     line-height: 1.2rem;
 }
 
