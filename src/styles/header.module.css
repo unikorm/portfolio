@@ -8,6 +8,8 @@ header {
 
 .sectionLogo img {
     width: 55px;
+    height: auto;
+    display: block;
 }
 
 .sectionTheme img {
