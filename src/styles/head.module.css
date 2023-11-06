@@ -16,12 +16,13 @@
 .headSection h3 {
     margin: 3.85rem 0 0;
     font-size: 2.05rem;
+    color: #a9c25de1;
 }
 
 .headSection p {
     margin: .1rem 0 0;
     font-family: 'Major Mono Display', monospace;
-    font-size: .65rem;
+    font-size: .67rem;
 }
 
 .headSection p:nth-of-type(2) {
@@ -30,7 +31,7 @@
 
 .spanContributions {
     font-family: 'Xanh Mono', monospace;
-    font-size: .8rem;
+    font-size: .9rem;
 }
 
 .articleAbout {
@@ -42,6 +43,7 @@
     font-size: .89rem;
     line-height: 1.25rem;
     letter-spacing: .05rem;
+    color: #a9c25de1;
 }
 
 .textHight {
@@ -57,14 +59,23 @@
     display: flex;
     flex-direction: row;
     text-decoration: none;
+    align-items: center;
     color: inherit;
+    margin: 0;
+}
+
+.articleMenu a:not(:first-of-type) {
+    margin: .65rem 0 0;
 }
 
 .articleMenu p {
-    font-size: .8rem;
+    font-size: .92rem;
+    margin: 0;
+    font-family: 'Syne Mono', monospace;
 }
 
 .articleMenu img {
-    width: 1rem;
-    margin: 0;
+    width: .67rem;
+    height: .67rem;
+    margin: 0 .25rem 0 0;
 }
