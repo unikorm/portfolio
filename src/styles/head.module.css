@@ -2,18 +2,34 @@
 .headSection {
     display: flex;
     flex-direction: column;
-    padding: 0 1.25rem;
+    padding: 0 1.55rem;
+    font-family: 'Syne Mono', monospace;
 }
 
 .headSection img {
-    width: 7rem;
+    width: 6.5rem;
     border-radius: 50%;
+    margin: 2.35rem 0 0;
 }
 
 .headSection h3 {
-    margin: 1rem 0 0;
+    margin: 3.85rem 0 0;
+    font-size: 1.99rem;
 }
 
 .headSection p {
-    margin: 0;
+    margin: .1rem 0 0;
+    font-family: 'Major Mono Display', monospace;
+    font-size: .79rem;
+}
+
+.headSection article {
+    margin: 2.35rem 0 0;
+    font-size: 1.1rem;
+    line-height: 1.2rem;
+}
+
+.headSection span {
+    font-family: 'Xanh Mono', monospace;
+    font-size: 1rem;
 }

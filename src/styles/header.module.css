@@ -3,7 +3,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .35rem .5rem 0;
+    padding: .55rem .75rem 0;
 }
 
 .sectionLogo img {
