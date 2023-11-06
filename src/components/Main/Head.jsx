@@ -40,7 +40,6 @@ const Head = () => {
                 const responseData = await response.json();
                 const totalContributions = responseData.data.user.contributionsCollection.contributionCalendar.totalContributions;
                 setContributions(totalContributions); 
-                console.log(responseData);
             } catch (error) {
                 console.error(error);
             };
@@ -54,11 +53,11 @@ const Head = () => {
             <p>just guy who trying code...</p>
             <img src={profilePhoto} alt="my profile" />
             {contributions !== undefined ? 
-                <p>{contributions} my total contributions on GitHub so far</p>
+                <p><span className={styles.spanContributions}>{contributions}</span> contributions on GitHub btw...</p>
             : <p></p>
             }
             <article>
-                <p>Hi and Welcome my fellow readers on my personal website. it's pleasure to have you here. i'm aspiring <span>frontend/web developer</span>, who wants to build something what works mainly with <span>JS</span>, <span>React</span> and <span>CSS</span>, but in my great future i want work with <span>tailwindCSS</span>, <span>NEXT.js</span> or <span>TypeScript</span> and of course, much more...</p>
+                <p>Hi and Welcome my fellow readers on my personal website. it's pleasure to have you here. i'm aspiring <span className={styles.textHight}>frontend/web developer</span>, who wants to build something what works mainly with <span className={styles.textHight}>JS</span>, <span className={styles.textHight}>React</span> and <span className={styles.textHight}>CSS</span>, but in my great future i want work with <span className={styles.textHight}>tailwindCSS</span>, <span className={styles.textHight}>NEXT.js</span> or <span className={styles.textHight}>TypeScript</span> and of course, much more...</p>
             </article>
         </section>
     );
