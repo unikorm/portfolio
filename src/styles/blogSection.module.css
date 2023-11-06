@@ -1,0 +1,26 @@
+
+.blogSection {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.55rem;
+    font-family: 'Major Mono Display', monospace;
+    margin: 2.95rem 0 0;
+}
+
+.blogSection p {
+    font-family: 'Xanh Mono', monospace;
+    text-decoration: underline;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.blogSection a {
+    text-decoration: underline;
+    color: inherit;
+    margin: 1rem 0 0;
+}
+
+.blogSection a p {
+    font-size: .85rem;
+}
+
