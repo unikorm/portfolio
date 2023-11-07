@@ -7,9 +7,9 @@ import { RouterProvider } from 'react-router-dom';
 
 function App() {
   return (
-    <React.Fragment>
+    <div id="dark">
       <RouterProvider router={router} />
-    </React.Fragment>
+    </div>
   );
 };
 
