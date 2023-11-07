@@ -29,8 +29,13 @@ const Header = () => {
                 ><img src={logo_64} alt="moje logo" /></Link>
             </section>
             <section className={styles.sectionTheme}>
-                <img src={light_theme} onClick={toggleTheme} alt="ikonka svetleho modu" />
-                <img src={dark_theme} onClick={toggleTheme} alt="ikonka pre tmavy rezim" />
+                {
+                    (theme === "dark") ? (
+                        <img src={light_theme} onClick={toggleTheme} alt="ikonka svetleho modu" />
+                    ) : (
+                        <img src={dark_theme} onClick={toggleTheme} alt="ikonka pre tmavy rezim" />
+                    )
+                }
             </section>
         </header>
     );
