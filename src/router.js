@@ -1,6 +1,8 @@
 
 import Main from "./components/main/Main";
 import Root from "./components/Root";
+import About from "./pages/About";
+import Connect from "./pages/Connect";
 import ErrorPage from "./pages/ErrorPage";
 
 import { createBrowserRouter } from "react-router-dom";
@@ -19,7 +21,12 @@ const router = createBrowserRouter([
                         element: <Main/>,
                     },
                     {
-                        // here will be About component (page)
+                        path: "/about",
+                        element: <About />,
+                    },
+                    {
+                        path: "/connect",
+                        element: <Connect />,
                     },
                     {
                         // here will be Blog component (but for start not, I will be having only few blog posts on main site)

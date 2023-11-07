@@ -29,3 +29,10 @@ const BlogSection = () => {
 };
 
 export default BlogSection;
+
+// export const formatDate = (date: string) =>
+//   new Date(date).toLocaleString('en-US', {
+//     month: 'short',
+//     day: '2-digit',
+//     year: 'numeric',
+//   })     "2023-10-17"

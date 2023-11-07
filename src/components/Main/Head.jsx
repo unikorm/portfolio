@@ -67,8 +67,8 @@ const Head = () => {
                 <p>Hi and Welcome my fellow readers on my personal website. it's pleasure to have you here. i'm aspiring <span className={styles.textHight}>frontend/web developer</span>, who wants to build something what works mainly with <span className={styles.textHight}>JS</span>, <span className={styles.textHight}>React</span> and <span className={styles.textHight}>CSS</span>, but in my great future i want work with <span className={styles.textHight}>tailwindCSS</span>, <span className={styles.textHight}>NEXT.js</span> or <span className={styles.textHight}>TypeScript</span> and of course, much more...</p>
             </article>
             <article className={styles.articleMenu}>
-                <Link to="/"><img src={pngArrow} alt="arrow" /><p>ways to connect</p></Link>
-                <Link to="/"><img src={pngArrow} alt="arrow" /><p>about myself</p></Link>
+                <Link to="/connect"><img src={pngArrow} alt="arrow" /><p>ways to connect</p></Link>
+                <Link to="/about"><img src={pngArrow} alt="arrow" /><p>about myself</p></Link>
                 <Link to="/"><img src={pngArrow} alt="arrow" /><p>projects</p></Link>
             </article>
 
