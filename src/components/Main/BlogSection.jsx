@@ -1,16 +1,27 @@
 
 import styles from "../../styles/blogSection.module.css";
-import { posts } from "../../data.json";
+import data from "../../data.json";
 
 import { Link } from "react-router-dom";
 
 const BlogSection = () => {
 
+    const convertPostsToArray = (object) => {
+        return Object.keys(object).map((id) => object[id]);
+    };
+    const { posts } = data;
+    const postsArray = convertPostsToArray(posts);
+
     return (
         <section className={styles.blogSection}>
             <p>latest posts</p>
             <article>
-                {/* here will be .map through posts */}
+                {postsArray.map((post) => (
+                    <Link to="/" key={post.id} >
+                        <p>{post.when}</p>
+                        <p>{post.title}</p>
+                    </Link>
+                ))}
             </article>
             <Link to="/"><p>see all</p></Link>
         </section>

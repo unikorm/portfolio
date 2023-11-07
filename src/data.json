@@ -1,6 +1,21 @@
 
 {
     "posts": {
-
+        "1": {
+            "id": 1,
+            "title": "how start in frontend and everything else",
+            "when": "Oct 17, 2023",
+            "author": "Adam Lednicky",
+            "header": "just a little help even to my younger me, if I know that info what i know it would be easier now.",
+            "content": "here will be content, idk in what formath for now"
+        },
+        "2": {
+            "id": 2,
+            "title": "where i learning and how i learning",
+            "when": "Sep 05, 2023",
+            "author": "Adam Lednicky",
+            "header": "paths to learn and understand stuff is important, especially in development I think, and here is my common alternatives to do that properly ",
+            "content": "here will be content, idk in what formath for now"
+        }
     }
 }
