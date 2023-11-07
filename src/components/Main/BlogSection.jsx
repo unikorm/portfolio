@@ -15,7 +15,7 @@ const BlogSection = () => {
     return (
         <section className={styles.blogSection}>
             <p>latest posts</p>
-            <article>
+            <article className={styles.articleBlogSection}>
                 {postsArray.map((post) => (
                     <Link to="/" key={post.id} >
                         <p>{post.when}</p>
