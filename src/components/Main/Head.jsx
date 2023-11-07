@@ -6,6 +6,7 @@ import pngArrow from "../../images/arrow-24.png";
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Head = () => {
 
@@ -53,9 +54,13 @@ const Head = () => {
         <section className={styles.headSection}>
             <h3>Adam Lednicky</h3>
             <p>just guy who trying code...</p>
-            <img src={profilePhoto} alt="my profile" />
+            <motion.img 
+            src={profilePhoto} 
+            alt="my profile"
+            whileHover={{ scale: 1.3, rotate: 320 }}
+            />
             {contributions !== undefined ? 
-                <p><span className={styles.spanContributions}>{contributions}</span> contributions on GitHub btw...</p>
+                <p><a href="https://github.com/unikorm" target="_blank" rel="noopener noreferrer" className={styles.contributions}>{contributions}</a> contributions on GitHub btw...</p>
             : <p></p>
             }
             <article className={styles.articleAbout}>
