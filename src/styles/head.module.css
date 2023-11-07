@@ -16,7 +16,7 @@
 .headSection h3 {
     margin: 3.85rem 0 0;
     font-size: 2.15rem;
-    color: #a9c25de1;
+    color: var(--second-color);
 }
 
 .headSection p {
@@ -45,7 +45,7 @@
     font-size: .89rem;
     line-height: 1.25rem;
     letter-spacing: .05rem;
-    color: #a9c25de1;
+    color: var(--second-color);
 }
 
 .textHight {

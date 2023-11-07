@@ -49,7 +49,7 @@
 }
 
 .articleBlogSection p:nth-of-type(2) {
-    color: #a9c25de1;
+    color: var(--second-color);
     margin: .09rem 0 0;
     font-size: .95rem;
     letter-spacing: .1rem;
