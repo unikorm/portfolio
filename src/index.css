@@ -13,7 +13,9 @@ body {
     cursor: default;
 }
 
-#dark {
-    background: #2a1b3d;   /*  #2a1b3d - dark     #a9c25d7e - light  */
-    color: #a4b3b6;      /*  #a4b3b6 - dark     #39395f - light  */
-}
+/* #dark {
+    background: #2a1b3d;   /*  #2a1b3d - dark     #a9c25d7e - light  
+    color: #a4b3b6;      /*  #a4b3b6 - dark     #39395f - light  
+    width: 100%;
+    height: 100%;
+} */
