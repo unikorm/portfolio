@@ -5,14 +5,16 @@ import light_theme from "../images/light-60.png";
 import dark_theme from "../images/dark-50.png";
 import { ThemeContext } from "../App";
 
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 
 
 const Header = () => {
 
     const { theme, toggleTheme } = useContext(ThemeContext);
+    const [isDarkTheme, setIsDarkTheme] = useState(theme === "dark");
 
     const location = useLocation();
     const scrollToTop = () => {
@@ -23,6 +25,11 @@ const Header = () => {
         };
     };
 
+    const handleToggleTheme = () => {
+        toggleTheme();
+        setIsDarkTheme(!isDarkTheme);
+    };
+
     return (
         <header>
             <section className={styles.sectionLogo}>
@@ -31,13 +38,25 @@ const Header = () => {
                 ><img src={logo_64} alt="moje logo" /></Link>
             </section>
             <section className={styles.sectionTheme}>
-                {
+                {/* {
                     (theme === "dark") ? (
                         <img src={light_theme} onClick={toggleTheme} alt="ikonka svetleho modu" />
                     ) : (
                         <img src={dark_theme} onClick={toggleTheme} alt="ikonka pre tmavy rezim" />
                     )
-                }
+                } */}
+                <AnimatePresence>
+                    <motion.img
+                        key={ isDarkTheme ? "dark" : "light" }
+                        src={ isDarkTheme ? light_theme : dark_theme }
+                        onClick={ handleToggleTheme }
+                        alt={ isDarkTheme ? "ikonka svetleho modu" : "ikonka tmaveho modu" }
+                        initial={{ opacity: 1 }}
+                        exit={{ opacity: .5 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                    />
+                </AnimatePresence>
             </section>
         </header>
     );
