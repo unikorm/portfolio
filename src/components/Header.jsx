@@ -7,7 +7,6 @@ import { ThemeContext } from "../App";
 
 import React, { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
 
 
 
@@ -45,7 +44,7 @@ const Header = () => {
                         <img src={dark_theme} onClick={toggleTheme} alt="ikonka pre tmavy rezim" />
                     )
                 } */}
-                <AnimatePresence>
+                {/* <AnimatePresence>
                     <motion.img
                         key={ isDarkTheme ? "dark" : "light" }
                         src={ isDarkTheme ? light_theme : dark_theme }
@@ -56,7 +55,12 @@ const Header = () => {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
                     />
-                </AnimatePresence>
+                </AnimatePresence> */}
+                <img
+                    src={ isDarkTheme ? light_theme : dark_theme }
+                    alt={ isDarkTheme ? "ikonka svetleho modu" : "ikonka pre tmavy rezim" }
+                    onClick={ handleToggleTheme }
+                />
             </section>
         </header>
     );
