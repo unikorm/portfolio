@@ -24,7 +24,7 @@ function App() {
       root.style.setProperty("--color", "#a4b3b6");
       root.style.setProperty("--second-color", "#a9c25de1");
     };
-};
+  };
 
   const toggleTheme = () => {
     setTheme((curr) => (curr === "dark" ? "light" : "dark"));
@@ -33,6 +33,10 @@ function App() {
   useEffect(() => {
     updateThemeVariables(theme)
   }, [theme]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

@@ -77,8 +77,8 @@
     font-family: 'Syne Mono', monospace;
 }
 
-.articleMenu img {
-    width: .7rem;
-    height: .7rem;
+.arrowIcon {
+    width: .95rem;
+    height: .95rem;
     margin: 0 .25rem 0 0;
 }

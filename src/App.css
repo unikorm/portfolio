@@ -3,7 +3,7 @@
     --background: #2a1b3d;
     --color: #a4b3b6;
     --second-color: #a9c25de1;
-  }
+ }
 
 #dark {
     background: var(--background);   /*  #2a1b3d - dark     #a9c25d7e - light  */
