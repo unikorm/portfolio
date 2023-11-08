@@ -1,6 +1,5 @@
 
 import styles from "../styles/header.module.css";
-import logo_64 from "../images/logo-64.svg";
 import light_theme from "../images/light-60.png";
 import dark_theme from "../images/dark-50.png";
 import { ThemeContext } from "../App";
@@ -34,7 +33,7 @@ const Header = () => {
             <section className={styles.sectionLogo}>
                 <Link to="/"
                 onClick={scrollToTop}
-                ><img src={logo_64} alt="moje logo" /></Link>
+                ><p className={styles.logoStyle}>AL</p></Link>
             </section>
             <section className={styles.sectionTheme}>
                 {/* {

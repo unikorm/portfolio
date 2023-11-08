@@ -6,6 +6,17 @@ header {
     padding: .55rem .75rem 0;
 }
 
+header a {
+    text-decoration: none;
+}
+
+.logoStyle {
+    font-family:'Indie Flower', cursive;;
+    color: var(--second-color);
+    font-size: 1.7rem;
+    margin: 0;
+}
+
 .sectionLogo img {
     width: 55px;
     height: auto;
