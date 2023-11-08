@@ -1,7 +1,7 @@
 
 import styles from "../styles/header.module.css";
 import logo_64 from "../images/logo-64.svg";
-import light_theme from "../images/light-50.png";
+import light_theme from "../images/light-60.png";
 import dark_theme from "../images/dark-50.png";
 import { ThemeContext } from "../App";
 
