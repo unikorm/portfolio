@@ -87,3 +87,7 @@
     height: .95rem;
     margin: 0 .25rem 0 0;
 }
+
+.inactiveLinks {
+    opacity: .7;
+}
