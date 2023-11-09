@@ -1,10 +1,10 @@
 
 import styles from "../styles/connect.module.css";
 import profilePhoto from "../images/profile.webp";
-import Github from "../images/github.svg";
-import LinkedIn from "../images/linkedin.svg";
-import Gmail from "../images/gmail.svg";
-import Instagram from "../images/instagram.svg";
+import { ReactComponent as Github } from "../images/github.svg";
+import { ReactComponent as LinkedIn } from "../images/linkedin.svg";
+import { ReactComponent as Gmail } from "../images/gmail.svg";
+import { ReactComponent as Instagram } from "../images/instagram.svg";
 
 import { motion } from "framer-motion";
 
@@ -21,12 +21,27 @@ const Connect = () => {
                 <h4>Adam Lednicky</h4>
                 <p>Just one Homo Sapiens from planet called Earth, attempting to develop something working ready to connect with other human beings and different speacies too...</p>
             </article>
-            <ul>
-                <li><a href="mailto:adaled00@gmail.com" ><img src={Gmail} alt="gmail icon" ></img>Gmail</a></li>
-                <li><a href="https://github.com/unikorm" target="_blank" rel="noopener noreferrer" ><img src={Github} alt="github icon" ></img>Github</a></li>
-                <li><a href="https://www.linkedin.com/in/adam-lednicky-17159b243" target="_blank" rel="noopener noreferrer" ><img src={LinkedIn} alt="linkedin icon" ></img>LinkedIn</a></li>
-                <li><a href="https://www.instagram.com/u.m.i.nat" target="_blank" rel="noopener noreferrer" ><img src={Instagram} alt="instagram icon" ></img>Instagram</a></li>
-            </ul>
+            <motion.ul
+            whileHover={{ opacity: .5 }}
+            initial={{opacity: 1}}
+            >
+                <motion.li 
+                whileHover={{ opacity: 1, x: 40, scale: 1.2 }}
+                initial={{ opacity: 1, x: 0 }}
+                ><a href="mailto:adaled00@gmail.com" ><Gmail className={styles.socialIcon} /><p>Gmail</p></a></motion.li>
+                <motion.li
+                whileHover={{ opacity: 1, x: 40, scale: 1.2 }}
+                initial={{ opacity: 1, x: 0 }}
+                ><a href="https://github.com/unikorm" target="_blank" rel="noopener noreferrer" ><Github className={styles.socialIcon} /><p>Github</p></a></motion.li>
+                <motion.li
+                whileHover={{ opacity: 1, x: 40, scale: 1.2 }}
+                initial={{ opacity: 1, x: 0 }}
+                ><a href="https://www.linkedin.com/in/adam-lednicky-17159b243" target="_blank" rel="noopener noreferrer" ><LinkedIn className={styles.socialIcon} /><p>LinkedIn</p></a></motion.li>
+                <motion.li
+                whileHover={{ opacity: 1, x: 40, scale: 1.2 }}
+                initial={{ opacity: 1, x: 0 }}
+                ><a href="https://www.instagram.com/u.m.i.nat" target="_blank" rel="noopener noreferrer" ><Instagram className={styles.socialIcon} /><p>Instagram</p></a></motion.li>
+            </motion.ul>
         </section>
     );
 };

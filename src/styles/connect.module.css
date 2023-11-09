@@ -34,6 +34,35 @@
 .connectSection article p {
     font-family: 'Xanh Mono', monospace;
     margin: 1rem 0 0;
-    font-size: .95rem;
-    line-height: 1.2rem;
+    font-size: .99rem;
+    line-height: 1.25rem;
+}
+
+.connectSection ul {
+    margin: 3.2rem 0 0 1.6rem;
+    padding: 0;
+    list-style-type: none;
+}
+
+.connectSection ul li:not(:first-of-type) {
+    margin: .8rem 0 0;
+}
+
+.connectSection li a {
+    text-decoration: none;
+    color: var(--second-color);
+    display: flex;
+    align-items: center;
+}
+
+.connectSection ul li p {
+    margin: 0;
+    font-size: .9rem;
+    letter-spacing: .06rem;
+}
+
+.socialIcon {
+    width: 25px;
+    height: 25px;
+    margin: 0 .7rem 0 0;
 }

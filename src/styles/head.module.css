@@ -66,6 +66,10 @@
     align-items: center;
     color: inherit;
     margin: 0;
+
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .15s;
 }
 
 .articleMenu a:not(:first-of-type) {
