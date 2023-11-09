@@ -3,6 +3,7 @@ import Main from "./components/main/Main";
 import Root from "./components/Root";
 import About from "./pages/About";
 import Connect from "./pages/Connect";
+import Projects from "./pages/Projects";
 import ErrorPage from "./pages/ErrorPage";
 
 import { createBrowserRouter } from "react-router-dom";
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
                     {
                         path: "/connect",
                         element: <Connect />,
+                    },
+                    {
+                        path: "/projects",
+                        element: <Projects />,
                     },
                     {
                         // here will be Blog component (but for start not, I will be having only few blog posts on main site)

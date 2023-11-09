@@ -1,0 +1,7 @@
+
+.sectionProjects {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.55rem;
+    font-family: 'Syne Mono', monospace;
+}

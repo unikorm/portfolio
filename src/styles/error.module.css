@@ -1,9 +1,12 @@
 
 .errorPage {
-    background: #bc1616;
     width: 80%;
-    height: 30%;
+    min-height: 100vh;
     border-radius: 19px;
     padding: 1rem;
-    margin: 2rem auto;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

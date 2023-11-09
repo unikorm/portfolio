@@ -1,6 +1,6 @@
 
 import styles from "../../styles/blogSection.module.css";
-import data from "../../data.json";
+import data from "../../blog.json";
 
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
