@@ -1,0 +1,26 @@
+
+.connectSection {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.55rem;
+    font-family: 'Syne Mono', monospace;
+}
+
+.connectSection article {
+    display: flex;
+    flex-direction: column;
+}
+
+.connectSection article img {
+    height: 5.55rem;
+    width: 5.55rem;
+    border-radius: 50%;
+    border: none;
+    margin: 2.35rem 0 0;
+    align-self: center;
+}
+
+.connectSection article p,
+.connectSection article h4 {
+    text-align: center;
+}
