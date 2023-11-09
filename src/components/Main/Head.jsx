@@ -6,11 +6,9 @@ import { ReactComponent as ArrowIcon } from "../../images/arrow.svg";
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { animate, motion } from "framer-motion";
 
 const Head = () => {
-
-    const [hoveredLink, setHoveredLink] = useState(null);
 
     const ghUserName = "unikorm";
     const headers = {
@@ -59,7 +57,13 @@ const Head = () => {
             <motion.img 
             src={profilePhoto} 
             alt="my profile"
-            whileHover={{ scale: 1.3, rotate: 320 }}
+            // initial={{ scale: 0 }}
+            whileHover={{ rotate: 360, scale: 1.1 }}
+            transition={{
+                type: "spring",
+                stiffness: 39,
+                damping: 2
+            }}
             />
             {contributions !== undefined ? 
                 <p><a href="https://github.com/unikorm" target="_blank" rel="noopener noreferrer" className={styles.contributions}>{contributions}</a> contributions on GitHub btw...</p>
@@ -68,23 +72,20 @@ const Head = () => {
             <article className={styles.articleAbout}>
                 <p>Hi and Welcome my fellow readers on my personal website. it's pleasure to have you here. i'm aspiring <span className={styles.textHight}>frontend/web developer</span>, who wants to build something what works mainly with <span className={styles.textHight}>JS</span>, <span className={styles.textHight}>React</span> and <span className={styles.textHight}>CSS</span>, but in my great future i want work with <span className={styles.textHight}>tailwindCSS</span>, <span className={styles.textHight}>NEXT.js</span> or <span className={styles.textHight}>TypeScript</span> and of course, much more...</p>
             </article>
-            <article 
-            className={styles.articleMenu}
-            onMouseLeave={() => setHoveredLink(null)}
-            >
-                <Link to="/connect"
-                className={ hoveredLink === "/connect" ? "" : styles.inactiveLinks }
-                onMouseEnter={() => setHoveredLink("/connect")}
-                ><ArrowIcon className={styles.arrowIcon} /><p>ways to connect</p></Link>
-                <Link to="/about"
-                className={ hoveredLink === "/about" ? "" : styles.inactiveLinks }
-                onMouseEnter={() => setHoveredLink("/about")}
-                ><ArrowIcon className={styles.arrowIcon} /><p>about myself</p></Link>
-                <Link to="/projects"
-                className={ hoveredLink === "/projects" ? "" : styles.inactiveLinks }
-                onMouseEnter={() => setHoveredLink("/projects")}
-                ><ArrowIcon className={styles.arrowIcon} /><p>projects</p></Link>
-            </article>
+            <ul className={styles.articleMenu}>
+                <motion.li
+                whileHover={{ opacity: 1, x: 20 }}
+                initial={{ opacity: .85, x: 0 }}
+                ><Link to="/connect"><ArrowIcon className={styles.arrowIcon} /><p>ways to connect</p></Link></motion.li>
+                <motion.li
+                whileHover={{ opacity: 1, x: 20 }}
+                initial={{ opacity: .85, x: 0 }}
+                ><Link to="/about"><ArrowIcon className={styles.arrowIcon} /><p>about myself</p></Link></motion.li>
+                <motion.li
+                whileHover={{ opacity: 1, x: 20 }}
+                initial={{ opacity: .85, x: 0 }}
+                ><Link to="/projects"><ArrowIcon className={styles.arrowIcon} /><p>projects</p></Link></motion.li>
+            </ul>
 
         </section>
     );

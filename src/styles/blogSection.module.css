@@ -26,6 +26,13 @@
 
 .articleBlogSection {
     margin: 2.9rem 0 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.articleBlogSection a {
+    text-decoration: none !important;
+    margin: 0 !important;
 }
 
 .articleBlogSection a {
@@ -35,7 +42,7 @@
     color: inherit;
 }
 
-.articleBlogSection a:not(:first-of-type) {
+.articleBlogSection li:not(:first-of-type) {
     margin: 1.4rem 0 0;
     text-decoration: none;
 }

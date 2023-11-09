@@ -3,6 +3,7 @@ import styles from "../../styles/blogSection.module.css";
 import data from "../../data.json";
 
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const BlogSection = () => {
 
@@ -22,14 +23,18 @@ const BlogSection = () => {
     return (
         <section className={styles.blogSection}>
             <p>latest posts</p>
-            <article className={styles.articleBlogSection}>
+            <ul className={styles.articleBlogSection}>
                 {postsArray.map((post) => (
-                    <Link to="/" key={post.id} >
+                    <motion.li
+                    initial={{ opacity: .8 }}
+                    whileHover={{ x: 10, opacity: 1 }}>
+                        <Link to="/" key={post.id} >
                         <p>{formatDate(post.when)}</p>
                         <p>{post.title}</p>
-                    </Link>
+                        </Link>
+                    </motion.li>   
                 ))}
-            </article>
+            </ul>
             <Link to="/"><p>see all</p></Link>
         </section>
     );

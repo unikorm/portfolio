@@ -56,6 +56,8 @@
 
 .articleMenu {
     margin: 2.25rem 0 0;
+    padding: 0;
+    list-style-type: none;
 }
 
 .articleMenu a {
@@ -66,13 +68,9 @@
     align-items: center;
     color: inherit;
     margin: 0;
-
-    transition-property: opacity;
-    transition-timing-function: cubic-bezier(.4,0,.2,1);
-    transition-duration: .15s;
 }
 
-.articleMenu a:not(:first-of-type) {
+.articleMenu li:not(:first-of-type) {
     margin: .65rem 0 0;
 }
 
@@ -86,8 +84,4 @@
     width: .95rem;
     height: .95rem;
     margin: 0 .25rem 0 0;
-}
-
-.inactiveLinks {
-    opacity: .7;
 }
