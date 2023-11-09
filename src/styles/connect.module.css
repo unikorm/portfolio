@@ -24,3 +24,16 @@
 .connectSection article h4 {
     text-align: center;
 }
+
+.connectSection article h4 {
+    color: var(--second-color);
+    font-size: 1.7rem;
+    margin: 1.95rem 0 0;
+}
+
+.connectSection article p {
+    font-family: 'Xanh Mono', monospace;
+    margin: 1rem 0 0;
+    font-size: .95rem;
+    line-height: 1.2rem;
+}
