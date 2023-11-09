@@ -38,8 +38,18 @@
     line-height: 1.25rem;
 }
 
+.connectSection aside {
+    margin: 1.8rem 0 0 1.6rem;
+}
+
+.connectSection aside p {
+    text-align: start;
+    font-family: 'Major Mono Display', monospace;
+    font-size: .7rem;
+}
+
 .connectSection ul {
-    margin: 3.2rem 0 0 1.6rem;
+    margin: 1.3rem 0 0 1.6rem;
     padding: 0;
     list-style-type: none;
 }

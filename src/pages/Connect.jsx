@@ -25,6 +25,9 @@ const Connect = () => {
                 />
                 <h4>Adam Lednicky</h4>
                 <p>Just one Homo Sapiens from planet called Earth, attempting to develop something working ready to connect with other human beings and different speacies too...</p>
+                <aside className={styles.connectTitle}>
+                    <p>connect me through:</p>
+                </aside>
             </article>
             <ul>
                 <motion.li 

@@ -26,6 +26,7 @@ const BlogSection = () => {
             <ul className={styles.articleBlogSection}>
                 {postsArray.map((post) => (
                     <motion.li
+                    key={post.id}
                     initial={{ opacity: .8 }}
                     whileHover={{ x: 10, opacity: 1 }}>
                         <Link to="/" key={post.id} >

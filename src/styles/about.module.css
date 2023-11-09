@@ -1,0 +1,27 @@
+
+.sectionAbout {
+    padding: 0 1.55rem;
+    font-family: 'Syne Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    color: var(--second-color);
+}
+
+.sectionAbout h3 {
+    font-size: 1rem;
+    letter-spacing: .1rem;
+    margin: 1.8rem 0 0;
+    opacity: .9;
+}
+
+.sectionAbout span {
+    font-size: 1.9rem;
+}
+
+.sectionAbout img {
+    width: 70%;
+    height: auto;
+    border-radius: 2rem;
+    align-self: center;
+    margin: 2.5rem 0 0;
+}
