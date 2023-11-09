@@ -61,7 +61,7 @@ const Head = () => {
             />
             {contributions !== undefined ? 
                 <p><a href="https://github.com/unikorm" target="_blank" rel="noopener noreferrer" className={styles.contributions}>{contributions}</a> contributions on GitHub btw...</p>
-            : <p></p>
+            : <p>I love my princess...</p>
             }
             <article className={styles.articleAbout}>
                 <p>Hi and Welcome my fellow readers on my personal website. it's pleasure to have you here. i'm aspiring <span className={styles.textHight}>frontend/web developer</span>, who wants to build something what works mainly with <span className={styles.textHight}>JS</span>, <span className={styles.textHight}>React</span> and <span className={styles.textHight}>CSS</span>, but in my great future i want work with <span className={styles.textHight}>tailwindCSS</span>, <span className={styles.textHight}>NEXT.js</span> or <span className={styles.textHight}>TypeScript</span> and of course, much more...</p>

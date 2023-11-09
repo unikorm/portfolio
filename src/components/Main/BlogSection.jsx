@@ -6,6 +6,13 @@ import { Link } from "react-router-dom";
 
 const BlogSection = () => {
 
+    const formatDate = (date) =>
+      new Date(date).toLocaleString('en-US', {
+        month: 'short',
+        day: '2-digit',
+        year: 'numeric',
+    });
+
     const convertPostsToArray = (object) => {
         return Object.keys(object).map((id) => object[id]);
     };
@@ -18,7 +25,7 @@ const BlogSection = () => {
             <article className={styles.articleBlogSection}>
                 {postsArray.map((post) => (
                     <Link to="/" key={post.id} >
-                        <p>{post.when}</p>
+                        <p>{formatDate(post.when)}</p>
                         <p>{post.title}</p>
                     </Link>
                 ))}
@@ -29,10 +36,3 @@ const BlogSection = () => {
 };
 
 export default BlogSection;
-
-// export const formatDate = (date: string) =>
-//   new Date(date).toLocaleString('en-US', {
-//     month: 'short',
-//     day: '2-digit',
-//     year: 'numeric',
-//   })     "2023-10-17"
