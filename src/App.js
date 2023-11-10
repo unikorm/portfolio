@@ -16,8 +16,6 @@ function App() {
   };
 
   const [theme, setTheme] = useState(getSystemTheme());
-  const [showSecretPage, setShowSecretPage] = useState(false);
-
 
   // theme changing logic
   const updateThemeVariables = (theme) => {
@@ -40,16 +38,6 @@ function App() {
   useEffect(() => {
     updateThemeVariables(theme)
   }, [theme]);
-
-
-  // secret page logic
-  useEffect(() => {
-    const handleScroll = () => {
-      const windowHeight = window.innerHeight;
-      const scrollY = window.scrollY;
-      const bottomThreshold = windowHeight * .3;
-    };
-  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
