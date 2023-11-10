@@ -37,3 +37,36 @@
     width: 43%;
     height: auto;
 }
+
+.aboutContent {
+    margin: 3.9rem 0 0;
+    padding: 0 0 3rem;
+}
+
+.aboutContent h5 {
+    margin: 0;
+    font-family: 'Xanh Mono', monospace;
+    font-size: .9rem;
+    opacity: .8;
+}
+
+.aboutContent p:nth-of-type(1) {
+    opacity: .87;
+    font-size: .8rem;
+    line-height: .97rem;
+    letter-spacing: .1rem;
+}
+
+.aboutContent p {
+    margin: 1.2rem 0 0;
+    font-family: 'Major Mono Display', monospace;
+    color: var(--color);
+    font-size: .85rem;
+    letter-spacing: .1rem;
+    line-height: 1.05rem;
+}
+
+.aboutContent p span {
+    font-family: 'Xanh Mono', monospace;
+    font-size: 1rem;
+}
