@@ -11,6 +11,7 @@ const Root = () => {
     // then if yes open secret page
 
     const [showSecretPage, setShowSecretPage] = useState(false);
+    const [isBottom, setIsBottom] = useState(false);
 
     useEffect(() => {
 
@@ -20,17 +21,41 @@ const Root = () => {
             const windowHeight = window.innerHeight; // this is height of user actual viewport
 
             if (mouseY > windowHeight * .9) {
-                console.log("mouse is in bottom");
+                // console.log(showSecretPage, "mouse is in bottom");
+                setShowSecretPage(true);
+                // console.log(showSecretPage);
+            } else {
+                setShowSecretPage(false);
             };
         };
 
+        // trigger if we are at the bottom of website
+        const handleScrollToBottom = () => {
+            const scrolledFromTop = document.documentElement.scrollTop - .5; // how much is scrolled from top of the site
+            const windowHeight = window.innerHeight;
+            const totalHight = document.documentElement.scrollHeight; // total height of the entire HTML document
+            const scrolledNow = scrolledFromTop + windowHeight;
+
+            if (totalHight === scrolledNow) {
+                setIsBottom(true);
+                console.log("on the bottom", totalHight, scrolledFromTop, windowHeight, scrolledNow);
+            } else {
+                setIsBottom(false);
+                console.log("not at bottom", totalHight,";", scrolledFromTop, "+", windowHeight,"=", scrolledNow);
+            };
+            
+        };
+
+
+        window.addEventListener("scroll", handleScrollToBottom);
         window.addEventListener("mousemove", handleMousePosition);
 
         return () => {
             window.removeEventListener("mousemove", handleMousePosition);
+            window.removeEventListener("scroll", handleScrollToBottom);
         };
 
-    }, []);
+    }, [showSecretPage, isBottom]);
 
     return (
         <React.Fragment>
