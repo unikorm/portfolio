@@ -4,8 +4,13 @@ import PhotoOne from "../images/aboutPhoto.webp";
 import PhotoTwo from "../images/aboutPhotoTwo.webp";
 
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 const About = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <section className={styles.sectionAbout}>

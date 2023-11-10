@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Connect from "./pages/Connect";
 import Projects from "./pages/Projects";
 import ErrorPage from "./pages/ErrorPage";
+import MainSecret from "./components/secret-stuff/Main_secret";
 
 import { createBrowserRouter } from "react-router-dom";
 
@@ -37,7 +38,8 @@ const router = createBrowserRouter([
                         // here will be Blog component (but for start not, I will be having only few blog posts on main site)
                     },
                     {
-                        // here will be the most exciting stuff here like game and funny APIs things and more I hope...
+                        path: "/secret",
+                        element: <MainSecret />
                     }
                 ],
             },

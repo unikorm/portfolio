@@ -3,7 +3,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .85rem .95rem 0;
+    padding: .85rem .85rem 0 .95rem;
 }
 
 header a {

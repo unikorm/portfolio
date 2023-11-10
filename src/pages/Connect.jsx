@@ -7,8 +7,13 @@ import { ReactComponent as Gmail } from "../images/gmail.svg";
 import { ReactComponent as Instagram } from "../images/instagram.svg";
 
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 const Connect = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <section className={styles.connectSection}>
