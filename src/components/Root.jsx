@@ -24,7 +24,7 @@ const Root = () => {
             const mouseY = event.clientY;  // is related to mouse events and provides information about the vertical position of the mouse pointer within the viewport
             const windowHeight = window.innerHeight; // this is height of user actual viewport
 
-            if (mouseY > windowHeight * .9) {
+            if (mouseY > windowHeight * .95) {
                 // console.log(showSecretPage, "mouse is in bottom");
                 setShowSecretPage(true);
                 // console.log(showSecretPage);
@@ -39,22 +39,29 @@ const Root = () => {
         const handleScrollToBottom = () => {
             const scrolledFromTop = document.documentElement.scrollTop; // how much is scrolled from top of the site
             const windowHeight = window.innerHeight;
-            const totalHight = document.documentElement.scrollHeight; // total height of the entire HTML document
+            const totalHight = Math.max(
+                document.body.scrollHeight,
+                document.body.offsetHeight,
+                document.documentElement.clientHeight,
+                document.documentElement.scrollHeight,
+                document.documentElement.offsetHeight
+            ); // total height of the entire HTML document
             const scrolledNow = scrolledFromTop + windowHeight;
+            const tolerance = 5;
 
-            if (totalHight === scrolledNow) {
+            if (totalHight <= scrolledNow + tolerance) {
                 setIsBottom(true);
-                // console.log("on the bottom", totalHight, scrolledFromTop, windowHeight, scrolledNow);
+                console.log("on the bottom", totalHight, scrolledFromTop, windowHeight, scrolledNow);
             } else {
                 setIsBottom(false);
-                // console.log("not at bottom", totalHight,";", scrolledFromTop, "+", windowHeight,"=", scrolledNow);
+                console.log("not at bottom", totalHight,";", scrolledFromTop, "+", windowHeight,"=", scrolledNow);
             };
 
             // setShouldShowSecret(totalHight === scrolledNow);
 
         };
 
-        if (location.pathname === "/") {
+        if (location.pathname === "/" ) {
             window.addEventListener("scroll", handleScrollToBottom);
             window.addEventListener("mousemove", handleMousePosition);
         };
@@ -72,7 +79,7 @@ const Root = () => {
             <Header />
             {/* here base on the result if secret page must be open will be rendered Outlet or Secret element */}
             {
-                isBottom && showSecretPage  ? <MainSecret /> : <Outlet /> // this is more controled but a lot of weird stuff accured
+                showSecretPage ? <MainSecret /> : <Outlet /> // this is more controled but a lot of weird stuff accured
             }
         </React.Fragment>
     );
