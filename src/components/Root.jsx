@@ -1,7 +1,8 @@
 
 import Header from "./Header";
+import MainSecret from "./secret-stuff/Main_secret";
 
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 const Root = () => {
@@ -12,6 +13,8 @@ const Root = () => {
 
     const [showSecretPage, setShowSecretPage] = useState(false);
     const [isBottom, setIsBottom] = useState(false);
+
+    const location = useLocation();
 
     useEffect(() => {
 
@@ -38,32 +41,36 @@ const Root = () => {
 
             if (totalHight === scrolledNow) {
                 setIsBottom(true);
-                console.log("on the bottom", totalHight, scrolledFromTop, windowHeight, scrolledNow);
+                // console.log("on the bottom", totalHight, scrolledFromTop, windowHeight, scrolledNow);
             } else {
                 setIsBottom(false);
-                console.log("not at bottom", totalHight,";", scrolledFromTop, "+", windowHeight,"=", scrolledNow);
+                // console.log("not at bottom", totalHight,";", scrolledFromTop, "+", windowHeight,"=", scrolledNow);
             };
-            
+
         };
 
-
-        window.addEventListener("scroll", handleScrollToBottom);
-        window.addEventListener("mousemove", handleMousePosition);
+        if (location.pathname === "/") {
+            window.addEventListener("scroll", handleScrollToBottom);
+            window.addEventListener("mousemove", handleMousePosition);
+        };
+        
 
         return () => {
             window.removeEventListener("mousemove", handleMousePosition);
             window.removeEventListener("scroll", handleScrollToBottom);
         };
 
-    }, [showSecretPage, isBottom]);
+    }, [location, showSecretPage, isBottom]);
 
     return (
         <React.Fragment>
             <Header />
-            <Outlet />
             {/* here base on the result if secret page must be open will be rendered Outlet or Secret element */}
+            {
+                isBottom && showSecretPage ? <MainSecret /> : <Outlet />
+            }
         </React.Fragment>
     );
 };
 
-export default Root;
+export default Root;  // bug in connect, when i hover it push element outside of parent in right (make smaller childs)
