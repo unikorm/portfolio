@@ -35,9 +35,6 @@ const router = createBrowserRouter([
                         element: <Projects />,
                     },
                     {
-                        // here will be Blog component (but for start not, I will be having only few blog posts on main site)
-                    },
-                    {
                         path: "/secret",
                         element: <MainSecret />
                     }

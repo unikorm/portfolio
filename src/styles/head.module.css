@@ -58,6 +58,7 @@
     margin: 2.25rem 0 0;
     padding: 0;
     list-style-type: none;
+    width: fit-content;
 }
 
 .articleMenu a {

@@ -2,29 +2,29 @@
 import Header from "./Header";
 import MainSecret from "./secret-stuff/Main_secret";
 
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 const Root = () => {
 
-    // if mouse is in bottom 10% of viewport (e.clientY) and in the same time is site scrolled to absolut bottom
-    // then active listener to know if there user scroll more
+    // active listener when location is "/" to look for cursor at the bottom and scrolled at the bottom
+    // if mouse is in bottom cca 5% of viewport (e.clientY) and in the same time is site scrolled to absolut bottom
     // then if yes open secret page
 
     const [showSecretPage, setShowSecretPage] = useState(false);
     const [isBottom, setIsBottom] = useState(false);
-    // const [shouldShowSecret, setShouldShowSecret] = useState(false);
 
+    const navigate = useNavigate();
     const location = useLocation();
 
     useEffect(() => {
 
-        // trigger mouse (cursor) position
+        // trigger mouse (cursor) position   (works pretty well as i want)
         const handleMousePosition = (event) => {
             const mouseY = event.clientY;  // is related to mouse events and provides information about the vertical position of the mouse pointer within the viewport
             const windowHeight = window.innerHeight; // this is height of user actual viewport
 
-            if (mouseY > windowHeight * .95) {
+            if (mouseY > windowHeight * .969) {
                 // console.log(showSecretPage, "mouse is in bottom");
                 setShowSecretPage(true);
                 // console.log(showSecretPage);
@@ -32,10 +32,9 @@ const Root = () => {
                 setShowSecretPage(false);
             };
 
-            // setShouldShowSecret(mouseY > windowHeight * .9);
         };
 
-        // trigger if we are at the bottom of website
+        // trigger if we are at the bottom of website    (works well with tolerance but it's okey)
         const handleScrollToBottom = () => {
             const scrolledFromTop = document.documentElement.scrollTop; // how much is scrolled from top of the site
             const windowHeight = window.innerHeight;
@@ -57,7 +56,6 @@ const Root = () => {
                 console.log("not at bottom", totalHight,";", scrolledFromTop, "+", windowHeight,"=", scrolledNow);
             };
 
-            // setShouldShowSecret(totalHight === scrolledNow);
 
         };
 
@@ -77,12 +75,11 @@ const Root = () => {
     return (
         <React.Fragment>
             <Header />
-            {/* here base on the result if secret page must be open will be rendered Outlet or Secret element */}
             {
-                showSecretPage ? <MainSecret /> : <Outlet /> // this is more controled but a lot of weird stuff accured
-            }
-        </React.Fragment>
-    );
+                showSecretPage && isBottom ? navigate("/secret") : <Outlet /> // bug, when it is open it set isBottom true, but when i move cursor abobe bottom border it don't reset isBottom, only mouse, and when then i move cursoe below it shows secret cause isBottom is not reseted
+            }       
+        </React.Fragment> // this is bad, navigate url on secret, but content is nowhere and lot of errors and warnings in console are
+    );  // now i realise it would be good put there at the bottom like button to open secret, like Link to="/secret", but i try this solve, what happening
 };
 
-export default Root;  // bug in connect, when i hover it push element outside of parent in right (make smaller childs)
+export default Root;
