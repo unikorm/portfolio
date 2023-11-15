@@ -2,8 +2,8 @@
 import Header from "./Header";
 import MainSecret from "./secret-stuff/Main_secret";
 
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import { Outlet, useLocation, useHistory } from "react-router-dom";
+import React, { useState, useEffect  } from "react";
 
 const Root = () => {
 
@@ -11,10 +11,9 @@ const Root = () => {
     // if mouse is in bottom cca 5% of viewport (e.clientY) and in the same time is site scrolled to absolut bottom
     // then if yes open secret page
 
-    const [showSecretPage, setShowSecretPage] = useState(false);
+    const [mouseAtBottom, setMouseAtBottom] = useState(false);
     const [isBottom, setIsBottom] = useState(false);
 
-    const navigate = useNavigate();
     const location = useLocation();
 
     useEffect(() => {
@@ -25,11 +24,11 @@ const Root = () => {
             const windowHeight = window.innerHeight; // this is height of user actual viewport
 
             if (mouseY > windowHeight * .969) {
-                // console.log(showSecretPage, "mouse is in bottom");
-                setShowSecretPage(true);
-                // console.log(showSecretPage);
+                console.log(mouseAtBottom, "mouse is in bottom");
+                setMouseAtBottom(true);
             } else {
-                setShowSecretPage(false);
+                console.log(mouseAtBottom ,"mouse above")
+                setMouseAtBottom(false);
             };
 
         };
@@ -70,13 +69,13 @@ const Root = () => {
             window.removeEventListener("scroll", handleScrollToBottom);
         };
 
-    }, [location]);
+    }, [location.pathname]);
 
     return (
         <React.Fragment>
             <Header />
             {
-                showSecretPage && isBottom ? <MainSecret /> : <Outlet /> // bug, when it is open it set isBottom true, but when i move cursor abobe bottom border it don't reset isBottom, only mouse, and when then i move cursoe below it shows secret cause isBottom is not reseted
+                mouseAtBottom && isBottom ? <MainSecret /> : <Outlet /> // bug, when it is open it set isBottom true, but when i move cursor abobe bottom border it don't reset isBottom, only mouse, and when then i move cursoe below it shows secret cause isBottom is not reseted
             }       
         </React.Fragment> // this is bad, navigate url on secret, but content is nowhere and lot of errors and warnings in console are
     );  // now i realise it would be good put there at the bottom like button to open secret, like Link to="/secret", but i try this solve, what happening
