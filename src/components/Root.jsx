@@ -76,7 +76,7 @@ const Root = () => {
         <React.Fragment>
             <Header />
             {
-                showSecretPage && isBottom ? navigate("/secret") : <Outlet /> // bug, when it is open it set isBottom true, but when i move cursor abobe bottom border it don't reset isBottom, only mouse, and when then i move cursoe below it shows secret cause isBottom is not reseted
+                showSecretPage && isBottom ? <MainSecret /> : <Outlet /> // bug, when it is open it set isBottom true, but when i move cursor abobe bottom border it don't reset isBottom, only mouse, and when then i move cursoe below it shows secret cause isBottom is not reseted
             }       
         </React.Fragment> // this is bad, navigate url on secret, but content is nowhere and lot of errors and warnings in console are
     );  // now i realise it would be good put there at the bottom like button to open secret, like Link to="/secret", but i try this solve, what happening
