@@ -24,10 +24,10 @@ const Root = () => {
             const windowHeight = window.innerHeight; // this is height of user actual viewport
 
             if (mouseY > windowHeight * .969) {
-                console.log(mouseAtBottom, "mouse is in bottom");
+                // console.log(mouseAtBottom, "mouse is in bottom");
                 setMouseAtBottom(true);
             } else {
-                console.log(mouseAtBottom ,"mouse above")
+                // console.log(mouseAtBottom ,"mouse above")
                 setMouseAtBottom(false);
             };
 
@@ -49,10 +49,12 @@ const Root = () => {
 
             if (totalHight <= scrolledNow + tolerance) {
                 setIsBottom(true);
-                console.log("on the bottom", totalHight, scrolledFromTop, windowHeight, scrolledNow);
+                // console.log("on the bottom", totalHight, scrolledFromTop, windowHeight, scrolledNow);
+                window.addEventListener("mousemove", handleMousePosition);
             } else {
                 setIsBottom(false);
-                console.log("not at bottom", totalHight,";", scrolledFromTop, "+", windowHeight,"=", scrolledNow);
+                // console.log("not at bottom", totalHight,";", scrolledFromTop, "+", windowHeight,"=", scrolledNow);
+                window.removeEventListener("mousemove", handleMousePosition);
             };
 
 
@@ -60,7 +62,7 @@ const Root = () => {
 
         if (location.pathname === "/" ) {
             window.addEventListener("scroll", handleScrollToBottom);
-            window.addEventListener("mousemove", handleMousePosition);
+            // window.addEventListener("mousemove", handleMousePosition);
         };
         
 
