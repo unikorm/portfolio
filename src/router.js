@@ -36,8 +36,12 @@ const router = createBrowserRouter([
                     },
                     {
                         path: "/secret",
-                        element: <MainSecret />
-                    }
+                        element: <MainSecret />,
+                        errorElement: <ErrorPage />,
+                        children: [
+
+                        ],
+                    },
                 ],
             },
         ],

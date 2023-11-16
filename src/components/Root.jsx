@@ -2,7 +2,7 @@
 import Header from "./Header";
 import MainSecret from "./secret-stuff/Main_secret";
 
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import React, { useState, useEffect  } from "react";
 
 const Root = () => {
@@ -15,6 +15,7 @@ const Root = () => {
     const [isBottom, setIsBottom] = useState(false);
 
     const location = useLocation();
+    const navigateTo = useNavigate();  // useHistory is not available anymore, so navigate works but not on 100% LOL
 
     useEffect(() => {
 
@@ -24,10 +25,10 @@ const Root = () => {
             const windowHeight = window.innerHeight; // this is height of user actual viewport
 
             if (mouseY > windowHeight * .969) {
-                console.log(mouseAtBottom, "mouse is in bottom");
+                // console.log(mouseAtBottom, "mouse is in bottom");
                 setMouseAtBottom(true);
             } else {
-                console.log(mouseAtBottom ,"mouse above")
+                // console.log(mouseAtBottom ,"mouse above")
                 setMouseAtBottom(false);
             };
 
@@ -49,11 +50,14 @@ const Root = () => {
 
             if (totalHight <= scrolledNow + tolerance) {
                 setIsBottom(true);
-                console.log(isBottom, totalHight, scrolledFromTop, windowHeight, scrolledNow);
+                // console.log(isBottom, totalHight, scrolledFromTop, windowHeight, scrolledNow);
                 window.addEventListener("mousemove", handleMousePosition);
+                    if (isBottom && mouseAtBottom && location.pathname !== "/secret") {
+                        navigateTo.push("/secret");
+                    }
             } else {
                 setIsBottom(false);
-                console.log(isBottom, totalHight,";", scrolledFromTop, "+", windowHeight,"=", scrolledNow);
+                // console.log(isBottom, totalHight,";", scrolledFromTop, "+", windowHeight,"=", scrolledNow);
                 window.removeEventListener("mousemove", handleMousePosition);
             };
 
@@ -79,7 +83,7 @@ const Root = () => {
             {
                 mouseAtBottom && isBottom ? <MainSecret /> : <Outlet /> 
             }       
-        </React.Fragment> // this is bad, navigate url on secret, but content is nowhere and lot of errors and warnings in console are
+        </React.Fragment>
     );  // now i realise it would be good put there at the bottom like button to open secret, like Link to="/secret", but i try this solve, what happening
 };
 
