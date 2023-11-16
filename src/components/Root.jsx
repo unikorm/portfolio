@@ -2,7 +2,7 @@
 import Header from "./Header";
 import MainSecret from "./secret-stuff/Main_secret";
 
-import { Outlet, useLocation, useHistory } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import React, { useState, useEffect  } from "react";
 
 const Root = () => {
@@ -24,10 +24,10 @@ const Root = () => {
             const windowHeight = window.innerHeight; // this is height of user actual viewport
 
             if (mouseY > windowHeight * .969) {
-                // console.log(mouseAtBottom, "mouse is in bottom");
+                console.log(mouseAtBottom, "mouse is in bottom");
                 setMouseAtBottom(true);
             } else {
-                // console.log(mouseAtBottom ,"mouse above")
+                console.log(mouseAtBottom ,"mouse above")
                 setMouseAtBottom(false);
             };
 
@@ -49,11 +49,11 @@ const Root = () => {
 
             if (totalHight <= scrolledNow + tolerance) {
                 setIsBottom(true);
-                // console.log("on the bottom", totalHight, scrolledFromTop, windowHeight, scrolledNow);
+                console.log(isBottom, totalHight, scrolledFromTop, windowHeight, scrolledNow);
                 window.addEventListener("mousemove", handleMousePosition);
             } else {
                 setIsBottom(false);
-                // console.log("not at bottom", totalHight,";", scrolledFromTop, "+", windowHeight,"=", scrolledNow);
+                console.log(isBottom, totalHight,";", scrolledFromTop, "+", windowHeight,"=", scrolledNow);
                 window.removeEventListener("mousemove", handleMousePosition);
             };
 
@@ -71,13 +71,13 @@ const Root = () => {
             window.removeEventListener("scroll", handleScrollToBottom);
         };
 
-    }, [location.pathname]);
+    }, [location.pathname, mouseAtBottom]);
 
     return (
         <React.Fragment>
             <Header />
             {
-                mouseAtBottom && isBottom ? <MainSecret /> : <Outlet /> // bug, when it is open it set isBottom true, but when i move cursor abobe bottom border it don't reset isBottom, only mouse, and when then i move cursoe below it shows secret cause isBottom is not reseted
+                mouseAtBottom && isBottom ? <MainSecret /> : <Outlet /> 
             }       
         </React.Fragment> // this is bad, navigate url on secret, but content is nowhere and lot of errors and warnings in console are
     );  // now i realise it would be good put there at the bottom like button to open secret, like Link to="/secret", but i try this solve, what happening
