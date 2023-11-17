@@ -17,7 +17,7 @@ const Root = () => {
     const location = useLocation();
     const navigateTo = useNavigate();  // useHistory is not available anymore, so navigate works but not on 100% LOL
 
-    useEffect(() => {
+    useEffect(() => {   // but useEffect is appropriate in this situation i think, when it depends on some states
 
         // trigger mouse (cursor) position   (works pretty well as i want)
         const handleMousePosition = (event) => {
@@ -77,12 +77,12 @@ const Root = () => {
             window.removeEventListener("scroll", handleScrollToBottom);
         };
 
-    }, [location.pathname ,mouseAtBottom]);  // i think this will be a place of many bugs yet
+    }, []);  // i think this will be a place of many bugs yet, i think i get useEffect out from here
 
     return (
         <React.Fragment>
             <Header />
-            <Outlet />       
+            <Outlet />    {/*  i think here must be only outlet cause it can now navigate from secret back and don't reset history like every time i am on main, now it behave normal   */}
         </React.Fragment>
     );  // now i realise it would be good put there at the bottom like button to open secret, like Link to="/secret", but i try this solve, what happening
 };
