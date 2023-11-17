@@ -52,9 +52,11 @@ const Root = () => {
                 setIsBottom(true);
                 // console.log(isBottom, totalHight, scrolledFromTop, windowHeight, scrolledNow);
                 window.addEventListener("mousemove", handleMousePosition);
-                    if (isBottom && mouseAtBottom && location.pathname !== "/secret") {
-                        navigateTo.push("/secret");
-                    }
+
+                if (isBottom && mouseAtBottom && location.pathname !== "/secret") {  // idk this logic will be fine, but for now yes, later i think will be better
+                    navigateTo("/secret");
+                };
+
             } else {
                 setIsBottom(false);
                 // console.log(isBottom, totalHight,";", scrolledFromTop, "+", windowHeight,"=", scrolledNow);
@@ -75,14 +77,12 @@ const Root = () => {
             window.removeEventListener("scroll", handleScrollToBottom);
         };
 
-    }, [location.pathname, mouseAtBottom]);
+    }, [location.pathname ,mouseAtBottom]);  // i think this will be a place of many bugs yet
 
     return (
         <React.Fragment>
             <Header />
-            {
-                mouseAtBottom && isBottom ? <MainSecret /> : <Outlet /> 
-            }       
+            <Outlet />       
         </React.Fragment>
     );  // now i realise it would be good put there at the bottom like button to open secret, like Link to="/secret", but i try this solve, what happening
 };
