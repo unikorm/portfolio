@@ -1,8 +1,6 @@
 
 import styles from "../../styles/styles_secret/main_secret.module.css";
 
-import { Outlet } from "react-router-dom";
-
 const MainSecret = () => {
 
     return (
