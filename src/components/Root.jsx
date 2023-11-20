@@ -1,21 +1,14 @@
 
 import Header from "./Header";
 
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import React, { useState, useEffect  } from "react";
+import { Outlet } from "react-router-dom";
+import React from "react";
 
 const Root = () => {
 
     // active listener when location is "/" to look for cursor at the bottom and scrolled at the bottom
     // if mouse is in bottom cca 5% of viewport (e.clientY) and in the same time is site scrolled to absolut bottom
     // then if yes open secret page
-
-    const [mouseAtBottom, setMouseAtBottom] = useState(false);
-    const [isBottom, setIsBottom] = useState(false);
-
-    const location = useLocation();
-    const navigateTo = useNavigate();  // useHistory is not available anymore, so navigate works but not on 100% LOL
-
 
     return (
         <React.Fragment>
