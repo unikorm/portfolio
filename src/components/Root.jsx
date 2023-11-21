@@ -1,90 +1,81 @@
 
 import Header from "./Header";
-import MainSecret from "./secret-stuff/Main_secret";
 
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import React, { useState, useEffect  } from "react";
+import React, { useEffect, useState } from "react";
 
 const Root = () => {
 
-    // active listener when location is "/" to look for cursor at the bottom and scrolled at the bottom
-    // if mouse is in bottom cca 5% of viewport (e.clientY) and in the same time is site scrolled to absolut bottom
-    // then if yes open secret page
+    // okey, i read documentation: useEffect I only need for when state changed
+    // and event handlers i need to check scroll and mouse, that change state and that fire useEffect
 
-    const [mouseAtBottom, setMouseAtBottom] = useState(false);
-    const [isBottom, setIsBottom] = useState(false);
-
+    const navigate = useNavigate();
     const location = useLocation();
-    const navigateTo = useNavigate();  // useHistory is not available anymore, so navigate works but not on 100% LOL
+    const [cursorPosition, setCursorPosition] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
-    useEffect(() => {   // but useEffect is appropriate in this situation i think, when it depends on some states
+    const handleMove = (event) => {
+        const mouseY = event.clientY;
+        const windowHeight = window.innerHeight;
 
-        // trigger mouse (cursor) position   (works pretty well as i want)
-        const handleMousePosition = (event) => {
-            const mouseY = event.clientY;  // is related to mouse events and provides information about the vertical position of the mouse pointer within the viewport
-            const windowHeight = window.innerHeight; // this is height of user actual viewport
-
-            if (mouseY > windowHeight * .969) {
-                // console.log(mouseAtBottom, "mouse is in bottom");
-                setMouseAtBottom(true);
-            } else {
-                // console.log(mouseAtBottom ,"mouse above")
-                setMouseAtBottom(false);
+        if (mouseY > windowHeight * .969) {
+            if (!cursorPosition && !scrolled) {
+                setCursorPosition(true);
+                setScrolled(true);
             };
-
+        } else {
+            setCursorPosition(false);
+            setScrolled(false);
         };
+    };
 
-        // trigger if we are at the bottom of website    (works well with tolerance but it's okey)
-        const handleScrollToBottom = () => {
-            const scrolledFromTop = document.documentElement.scrollTop; // how much is scrolled from top of the site
-            const windowHeight = window.innerHeight;
-            const totalHight = Math.max(
-                document.body.scrollHeight,
-                document.body.offsetHeight,
-                document.documentElement.clientHeight,
-                document.documentElement.scrollHeight,
-                document.documentElement.offsetHeight
-            ); // total height of the entire HTML document
-            const scrolledNow = scrolledFromTop + windowHeight;
-            const tolerance = 5;
-
-            if (totalHight <= scrolledNow + tolerance) {
-                setIsBottom(true);
-                // console.log(isBottom, totalHight, scrolledFromTop, windowHeight, scrolledNow);
-                window.addEventListener("mousemove", handleMousePosition);
-
-                if (isBottom && mouseAtBottom && location.pathname !== "/secret") {  // idk this logic will be fine, but for now yes, later i think will be better
-                    navigateTo("/secret");
-                };
-
-            } else {
-                setIsBottom(false);
-                // console.log(isBottom, totalHight,";", scrolledFromTop, "+", windowHeight,"=", scrolledNow);
-                window.removeEventListener("mousemove", handleMousePosition);
-            };
-
-
+    const handleScroll = () => {
+        const scrolledFromTop = document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight;
+        const totalHeight = Math.max(
+          document.body.scrollHeight,
+          document.body.offsetHeight,
+          document.documentElement.clientHeight,
+          document.documentElement.scrollHeight,
+          document.documentElement.offsetHeight
+        );
+        const scrolledNow = scrolledFromTop + windowHeight;
+        const tolerance = 10;
+  
+        if (scrolledNow + tolerance >= totalHeight) {
+          if (!scrolled) {
+            window.addEventListener("mousemove", handleMove);
+          };
+        } else {
+          window.removeEventListener("mousemove", handleMove);
         };
+    };
 
-        if (location.pathname === "/" ) {
-            window.addEventListener("scroll", handleScrollToBottom);
-            // window.addEventListener("mousemove", handleMousePosition);
-        };
+    if (location.pathname === "/") {
+        window.addEventListener("scroll", handleScroll);
+    };
         
 
-        return () => {
-            window.removeEventListener("mousemove", handleMousePosition);
-            window.removeEventListener("scroll", handleScrollToBottom);
-        };
+    useEffect(() => {  // useEffect only run when state change + plus check navigate idk why and location
 
-    }, []);  // i think this will be a place of many bugs yet, i think i get useEffect out from here
+        if (cursorPosition && scrolled && location.pathname === "/") {
+            navigate("/secret", {push: true}); // idk what this really do, just i put it there to know something is fucked up
+        };
+    
+        return () => {
+          setCursorPosition(false);
+          setScrolled(false);
+        };
+      }, [cursorPosition, location.pathname, navigate, scrolled]);
+
+
 
     return (
         <React.Fragment>
             <Header />
-            <Outlet />    {/*  i think here must be only outlet cause it can now navigate from secret back and don't reset history like every time i am on main, now it behave normal   */}
+            <Outlet />
         </React.Fragment>
-    );  // now i realise it would be good put there at the bottom like button to open secret, like Link to="/secret", but i try this solve, what happening
+    );
 };
 
 export default Root;

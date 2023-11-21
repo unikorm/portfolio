@@ -6,7 +6,7 @@ import { ReactComponent as ArrowIcon } from "../../images/arrow.svg";
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { animate, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Head = () => {
 
@@ -48,7 +48,7 @@ const Head = () => {
             };
         };
         fetchData();
-    }, []);
+    });
 
     return (
         <section className={styles.headSection}>
