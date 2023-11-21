@@ -40,7 +40,7 @@
 
 .aboutContent {
     margin: 3.9rem 0 0;
-    padding: 0 0 3rem;
+    padding: 0 0 5rem;
 }
 
 .aboutContent h5 {
@@ -69,4 +69,42 @@
 .aboutContent p span {
     font-family: 'Xanh Mono', monospace;
     font-size: 1rem;
+}
+
+.aboutContent aside p {
+    text-align: start;
+    font-family: 'Syne Mono', monospace;
+    color: var(--second-color);
+    font-size: .7rem;
+}
+
+.aboutContent ul {
+    margin: 1.3rem 0 0 1.6rem;
+    padding: 0;
+    list-style-type: none;
+    width: min-content;
+}
+
+.aboutContent ul li:not(:first-of-type) {
+    margin: .8rem 0 0;
+}
+
+.aboutContent li a {
+    text-decoration: none;
+    color: var(--second-color);
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.aboutContent ul li p {
+    margin: 0;
+    font-size: .9rem !important;
+    letter-spacing: .06rem !important;
+}
+
+.socialIcon {
+    width: 25px;
+    height: 25px;
+    margin: 0 .7rem 0 0;
 }
