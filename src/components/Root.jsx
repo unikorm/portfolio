@@ -1,7 +1,7 @@
 
 import Header from "./Header";
 
-import { Outlet, useNavigate, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
 const Root = () => {
@@ -45,10 +45,8 @@ const Root = () => {
         if (scrolledNow + tolerance >= totalHeight) {
           if (!scrolled) {
             window.addEventListener("mousemove", handleMove);
-            // setScrolled(true);
           };
         } else {
-        //   setScrolled(false);
           window.removeEventListener("mousemove", handleMove);
         };
     };
@@ -58,10 +56,10 @@ const Root = () => {
     };
         
 
-    useEffect(() => {  // useEffect only run when state change
+    useEffect(() => {  // useEffect only run when state change + plus check navigate idk why and location
 
         if (cursorPosition && scrolled && location.pathname === "/") {
-            navigate("/secret");
+            navigate("/secret", {replace: false});
         };
     
         return () => {
@@ -69,14 +67,6 @@ const Root = () => {
           setScrolled(false);
         };
       }, [cursorPosition, location.pathname, navigate, scrolled]);
-
-
-    // if (location.pathname === "/") {
-    //     window.addEventListener("scroll", handleScroll);
-    // } else if (location.pathname !== "/") {
-    //     window.removeEventListener("scroll", handleScroll);
-    // };
-    
 
 
 
