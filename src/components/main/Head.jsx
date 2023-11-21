@@ -48,7 +48,7 @@ const Head = () => {
             };
         };
         fetchData();
-    }, []);
+    });
 
     return (
         <section className={styles.headSection}>

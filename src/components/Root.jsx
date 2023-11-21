@@ -59,7 +59,7 @@ const Root = () => {
     useEffect(() => {  // useEffect only run when state change + plus check navigate idk why and location
 
         if (cursorPosition && scrolled && location.pathname === "/") {
-            navigate("/secret", {replace: false});
+            navigate("/secret", {push: true}); // idk what this really do, just i put it there to know something is fucked up
         };
     
         return () => {
