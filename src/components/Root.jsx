@@ -6,92 +6,69 @@ import React, { useEffect, useState } from "react";
 
 const Root = () => {
 
-    // active listener when location is "/" to look for cursor at the bottom and scrolled at the bottom
-    // if mouse is in bottom cca 5% of viewport (e.clientY) and in the same time is site scrolled to absolut bottom
-    // then if yes open secret page
+    // okey, i read documentation: useEffect I only need for when state changed
+    // and event handlers i need to check scroll and mouse, that change state and that fire useEffect
 
     const navigate = useNavigate();
     const location = useLocation();
     const [cursorPosition, setCursorPosition] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
-    // const handleCursor = (event) => {
-    //     const mouseY = event.clientY;
-    //     const windowHeight = window.innerHeight;
+    const handleMove = (event) => {
+        const mouseY = event.clientY;
+        const windowHeight = window.innerHeight;
 
-    //     if (mouseY >= windowHeight * .9) {
-    //         setCursorPosition(true);
-    //         console.log(cursorPosition);
-    //     } else {
-    //         setCursorPosition(false);
-    //         console.log(cursorPosition);
-    //     };
-    // };
-
-    // const handleScroll = () => {
-    //     const scrolledFromTop = document.documentElement.scrollTop;
-    //     const windowHeight = window.innerHeight;
-    //     const totalHight = Math.max(
-    //         document.body.scrollHeight,
-    //         document.body.offsetHeight,
-    //         document.documentElement.clientHeight,
-    //         document.documentElement.scrollHeight,
-    //         document.documentElement.offsetHeight
-    //     );
-    //     const scrolledNow = scrolledFromTop + windowHeight;
-    //     const tolerance = 10;
-        
-    // };
-    useEffect(() => {
-
-        const handleMove = (event) => {
-            const mouseY = event.clientY;
-            const windowHeight = window.innerHeight;
-
-            if (mouseY > windowHeight * .969) {
-                // console.log(mouseAtBottom, "mouse is in bottom");
-                setMouseAtBottom(true);
-            } else {
-                // console.log(mouseAtBottom ,"mouse above")
-                setMouseAtBottom(false);
+        if (mouseY > windowHeight * .969) {
+            if (!cursorPosition && !scrolled) {
+                setCursorPosition(true);
+                setScrolled(true);
             };
-        }
-
-        const handleScroll = () => {
-          const scrolledFromTop = document.documentElement.scrollTop;
-          const windowHeight = window.innerHeight;
-          const totalHeight = Math.max(
-            document.body.scrollHeight,
-            document.body.offsetHeight,
-            document.documentElement.clientHeight,
-            document.documentElement.scrollHeight,
-            document.documentElement.offsetHeight
-          );
-          const scrolledNow = scrolledFromTop + windowHeight;
-          const tolerance = 10;
-    
-          if (scrolledNow + tolerance >= totalHeight) {
-            if (!scrolled) {
-              window.addEventListener("mousemove", handleMove);
-              setScrolled(true);
-            }
-          } else {
+        } else {
+            setCursorPosition(false);
             setScrolled(false);
-          }
         };
-    
-        const yourFunctionToBeFired = () => {
-          // Your code here
-          console.log('Scrolled to the bottom!');
+    };
+
+    const handleScroll = () => {
+        const scrolledFromTop = document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight;
+        const totalHeight = Math.max(
+          document.body.scrollHeight,
+          document.body.offsetHeight,
+          document.documentElement.clientHeight,
+          document.documentElement.scrollHeight,
+          document.documentElement.offsetHeight
+        );
+        const scrolledNow = scrolledFromTop + windowHeight;
+        const tolerance = 10;
+  
+        if (scrolledNow + tolerance >= totalHeight) {
+          if (!scrolled) {
+            window.addEventListener("mousemove", handleMove);
+            // setScrolled(true);
+          };
+        } else {
+        //   setScrolled(false);
+          window.removeEventListener("mousemove", handleMove);
         };
-    
-        if (location.pathname === "/")
-        window.addEventListener('scroll', handleScroll);
+    };
+
+    if (location.pathname === "/") {
+        window.addEventListener("scroll", handleScroll);
+    };
+        
+
+    useEffect(() => {  // useEffect only run when state change
+
+        if (cursorPosition && scrolled && location.pathname === "/") {
+            navigate("/secret");
+        };
     
         return () => {
-          window.removeEventListener('scroll', handleScroll);
+          setCursorPosition(false);
+          setScrolled(false);
         };
-      }, [location, scrolled]);
+      }, [cursorPosition, location.pathname, navigate, scrolled]);
 
 
     // if (location.pathname === "/") {
