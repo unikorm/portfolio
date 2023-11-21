@@ -10,67 +10,99 @@ const Root = () => {
     // if mouse is in bottom cca 5% of viewport (e.clientY) and in the same time is site scrolled to absolut bottom
     // then if yes open secret page
 
-    // const navigate = useNavigate();
-    // const location = useLocation();
-    // const [cursorPosition, setCursorPosition] = useState(false);
-    // const [scrolled, setScrolled] = useState(false);
-
-    const [selectedPlace, setSelectedPlace] = useState({isScrolled: false, isBottom: false});
     const navigate = useNavigate();
     const location = useLocation();
+    const [cursorPosition, setCursorPosition] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    // const handleCursor = (event) => {
+    //     const mouseY = event.clientY;
+    //     const windowHeight = window.innerHeight;
+
+    //     if (mouseY >= windowHeight * .9) {
+    //         setCursorPosition(true);
+    //         console.log(cursorPosition);
+    //     } else {
+    //         setCursorPosition(false);
+    //         console.log(cursorPosition);
+    //     };
+    // };
+
+    // const handleScroll = () => {
+    //     const scrolledFromTop = document.documentElement.scrollTop;
+    //     const windowHeight = window.innerHeight;
+    //     const totalHight = Math.max(
+    //         document.body.scrollHeight,
+    //         document.body.offsetHeight,
+    //         document.documentElement.clientHeight,
+    //         document.documentElement.scrollHeight,
+    //         document.documentElement.offsetHeight
+    //     );
+    //     const scrolledNow = scrolledFromTop + windowHeight;
+    //     const tolerance = 10;
+        
+    // };
+    useEffect(() => {
+
+        const handleMove = (event) => {
+            const mouseY = event.clientY;
+            const windowHeight = window.innerHeight;
+
+            if (mouseY > windowHeight * .969) {
+                // console.log(mouseAtBottom, "mouse is in bottom");
+                setMouseAtBottom(true);
+            } else {
+                // console.log(mouseAtBottom ,"mouse above")
+                setMouseAtBottom(false);
+            };
+        }
 
         const handleScroll = () => {
-            const windowHeight = window.innerHeight;
-            const scrolledFromTop = document.documentElement.scrollTop;
-            const totalHight = Math.max(
-                document.body.scrollHeight,
-                document.body.offsetHeight,
-                document.documentElement.clientHeight,
-                document.documentElement.scrollHeight,
-                document.documentElement.offsetHeight
-            );
-            const scrolledNow = scrolledFromTop + windowHeight;
-            const tolerance = 10;
-
-            const isBottom = totalHight <= scrolledNow + tolerance;
-
-            setSelectedPlace((data) => ({
-                ...data,
-                isScrolled: isBottom,
-            }));
+          const scrolledFromTop = document.documentElement.scrollTop;
+          const windowHeight = window.innerHeight;
+          const totalHeight = Math.max(
+            document.body.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.clientHeight,
+            document.documentElement.scrollHeight,
+            document.documentElement.offsetHeight
+          );
+          const scrolledNow = scrolledFromTop + windowHeight;
+          const tolerance = 10;
+    
+          if (scrolledNow + tolerance >= totalHeight) {
+            if (!scrolled) {
+              window.addEventListener("mousemove", handleMove);
+              setScrolled(true);
+            }
+          } else {
+            setScrolled(false);
+          }
         };
-
-        const handleMove = (e) => {
-            const mouseY = e.clientY;
-            const windowHeight = window.innerHeight;
-            
-            const isBottom = mouseY > windowHeight * .9;
-
-            setSelectedPlace((data) => ({
-                ...data,
-                isBottom: isBottom,
-            }));
+    
+        const yourFunctionToBeFired = () => {
+          // Your code here
+          console.log('Scrolled to the bottom!');
         };
-
-       useEffect(() => {
-
-        if (location.pathname === "/") {
-            window.addEventListener('scroll', handleScroll);
-            window.addEventListener('mousemove', handleMove);
-        };
-
-        if (selectedPlace) {
-            navigate("/secret");
-        };
-
+    
+        if (location.pathname === "/")
+        window.addEventListener('scroll', handleScroll);
+    
         return () => {
-            window.removeEventListener('scroll', handleScroll);
-            window.removeEventListener('mousemove', handleMove);
+          window.removeEventListener('scroll', handleScroll);
         };
+      }, [location, scrolled]);
 
-       }, [location.pathname, selectedPlace, navigate]);
 
-   
+    // if (location.pathname === "/") {
+    //     window.addEventListener("scroll", handleScroll);
+    // } else if (location.pathname !== "/") {
+    //     window.removeEventListener("scroll", handleScroll);
+    // };
+    
+
+
+
     return (
         <React.Fragment>
             <Header />
