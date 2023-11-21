@@ -36,7 +36,7 @@ const BlogSection = () => {
                     </motion.li>   
                 ))}
             </ul>
-            <Link to="/"><p>see all</p></Link>
+            <Link to="/blog"><p>see all</p></Link>
         </section>
     );
 };

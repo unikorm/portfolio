@@ -4,6 +4,9 @@ import Root from "./components/Root";
 import About from "./pages/About";
 import Connect from "./pages/Connect";
 import Projects from "./pages/Projects";
+import ProjectPost from "./pages/ProjectPost";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import ErrorPage from "./pages/ErrorPage";
 import MainSecret from "./components/secret-stuff/Main_secret";
 
@@ -16,7 +19,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage/>,
         children: [
             {
-                path: "/",
+                path: "",
                 element: <Main />,
             },
             {
@@ -30,10 +33,23 @@ const router = createBrowserRouter([
             {
                 path: "/projects",
                 element: <Projects />,
+                children: [
+                    { path: ":id", element: <ProjectPost /> },
+                ],
+            },
+            {
+                path: "/blog",
+                element: <Blog />,
+                children: [
+                    { path: ":id", element: <BlogPost /> },
+                ],
             },
             {
                 path: "/secret",
                 element: <MainSecret />,
+                children: [
+
+                ],
             },
         ],
    
