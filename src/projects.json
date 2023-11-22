@@ -3,7 +3,7 @@
     "projects": {
         "1": {
             "id": 1,
-            "title": "Map, where I/We slept so far",
+            "title": "map, where i/we slept so far",
             "when": "2023-11-11",
             "author": "Adam Lednicky",
             "header": "this will be resolved another way, but for now via json",

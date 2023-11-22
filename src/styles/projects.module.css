@@ -1,7 +1,54 @@
 
 .sectionProjects {
-    display: flex;
-    flex-direction: column;
     padding: 0 1.55rem;
     font-family: 'Syne Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    color: var(--second-color);
+}
+
+.sectionProjects h3 {
+    font-size: 1.96rem;
+    letter-spacing: .1rem;
+    margin: 4.69rem 0 0;
+}
+
+.sectionProjects p:nth-of-type(1) {
+    font-family: 'Xanh Mono', monospace;
+    font-size: .9rem;
+    opacity: .9;
+    margin: .2rem 0 0;
+    letter-spacing: .04rem;
+}
+
+.sectionProjects p {
+    font-family: 'Major Mono Display', monospace;
+}
+
+.sectionProjects ul {
+    padding: 0;
+    margin: 5.69rem 0 0;
+    list-style-type: none;
+}
+
+.sectionProjects ul li:not(:first-of-type) {
+    margin: 2.4rem 0 0;
+}
+
+.sectionProjects ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+.sectionProjects ul li a p:nth-of-type(1) {
+    font-family: 'Syne Mono', monospace;
+    color: var(--color);
+    font-size: .95rem;
+    margin: 0;
+    letter-spacing: 0;
+}
+
+.sectionProjects ul li a p:nth-of-type(2) {
+    font-size: 1.2rem;
+    margin: .09rem 0 0;
+    letter-spacing: .1rem;
 }
