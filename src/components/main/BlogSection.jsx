@@ -29,7 +29,7 @@ const BlogSection = () => {
                     key={post.id}
                     initial={{ opacity: .8 }}
                     whileHover={{ x: 7, opacity: 1 }}>
-                        <Link to="/" key={post.id} >
+                        <Link to={`/blog/${post.id}`} key={post.id} >
                         <p>{formatDate(post.when)}</p>
                         <p>{post.title}</p>
                         </Link>
