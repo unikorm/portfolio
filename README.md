@@ -10,4 +10,11 @@ now what is used here? i used JS, React with some his newest features like React
 
 
 
-## and this is my UI for now
+## and this is my UI for now day/night mode
+
+light mode  
+<img width="330" alt="myPageDay" src="https://github.com/unikorm/portfolio/assets/71944799/671278a1-45fa-4627-9702-08c7db2d5a3b">
+
+<img width="330" alt="myPageNight" src="https://github.com/unikorm/portfolio/assets/71944799/6a0d8b97-7235-4134-b757-a9a5f7a911fc">  
+
+dark mode  
