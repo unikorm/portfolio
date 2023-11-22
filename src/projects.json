@@ -2,7 +2,12 @@
 {
     "projects": {
         "1": {
-            
+            "id": 1,
+            "title": "Map, where I/We slept so far",
+            "when": "2023-11-11",
+            "author": "Adam Lednicky",
+            "header": "this will be resolved another way, but for now via json",
+            "content": "a lot of text, etc."
         }
     }
 }

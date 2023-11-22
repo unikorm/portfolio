@@ -11,7 +11,11 @@ const Projects = () => {
 
     return (
         <section className={styles.sectionProjects}>
-            <h3>here are some of my projects I done/doing</h3>
+            <h3>Projects</h3>
+            <p>Here are some of the projects I've worked on so far.</p>
+            <ul>
+                
+            </ul>
         </section>
     );
 };
