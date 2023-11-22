@@ -4,10 +4,8 @@
         "1": {
             "id": 1,
             "title": "map, where i/we slept so far",
-            "when": "2023-11-11",
-            "author": "Adam Lednicky",
-            "header": "this will be resolved another way, but for now via json",
-            "content": "a lot of text, etc."
+            "when": "2023-10-16",
+            "content": "here will be something about how i get this ieda, how and with what kind of technologies i did it, from what i get insiration on this UI/UX and more"
         }
     }
 }

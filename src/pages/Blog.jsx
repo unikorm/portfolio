@@ -38,6 +38,8 @@ const Blog = () => {
         year: 'numeric',
     });
 
+    // function to read number of blog posts and show him on "X"
+
     const convertPostsToArray = (object) => {
         return Object.keys(object).map((id) => object[id]);
     };

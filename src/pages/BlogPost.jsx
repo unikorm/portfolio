@@ -1,5 +1,5 @@
 
-import styles from "../styles/blog.module.css";
+import styles from "../styles/blogPost.module.css";
 import data from "../blog.json";
 
 import React, { useEffect } from "react";
@@ -14,6 +14,13 @@ const BlogPost = () => {
         window.scrollTo(0, 0);
     }, []);
 
+    const formatDate = (date) =>
+      new Date(date).toLocaleString('en-US', {
+        month: 'short',
+        day: '2-digit',
+        year: 'numeric',
+    });
+
     const post = posts[id];
 
     if (!post) {
@@ -24,7 +31,9 @@ const BlogPost = () => {
 
 
     return (
-        <section>
+        <section className={styles.blogPostSection}>
+            <h3>{post.title}</h3>
+            <span>{formatDate(post.when)}</span>
             <p>{post.content}</p>
         </section>
     );

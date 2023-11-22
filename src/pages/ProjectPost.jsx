@@ -1,5 +1,5 @@
 
-import styles from "../styles/projects.module.css";
+import styles from "../styles/projectPost.module.css";
 import data from "../projects.json";
 
 import React, { useEffect } from "react";
@@ -14,6 +14,13 @@ const ProjectPost = () => {
         window.scrollTo(0, 0);
     }, []);
 
+    const formatDate = (date) =>
+    new Date(date).toLocaleString('en-US', {
+      month: 'short',
+      day: '2-digit',
+      year: 'numeric',
+  });
+
     const project = projects[id];
 
     if (!project) {
@@ -23,7 +30,9 @@ const ProjectPost = () => {
     };
 
     return (
-        <section>
+        <section className={styles.projectPostSection}>
+            <h3>{project.title}</h3>
+            <span>{formatDate(project.when)}</span>
             <p>{project.content}</p>
         </section>
     );
