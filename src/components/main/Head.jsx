@@ -66,7 +66,7 @@ const Head = () => {
             }}
             />
             {contributions !== undefined ? 
-                <p><a href="https://github.com/unikorm" target="_blank" rel="noopener noreferrer" className={styles.contributions}>{contributions}</a> contributions on GitHub btw...</p>
+                <p><a href="https://github.com/unikorm" target="_blank" rel="noopener noreferrer" className={styles.contributions}>{contributions}</a> contributions on GitHub this year btw</p>
             : <p>i love my princess...</p>
             }
             <article className={styles.articleAbout}>

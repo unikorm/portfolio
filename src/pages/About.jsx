@@ -22,12 +22,12 @@ const About = () => {
             <span>about ME</span>
             <aside>
                 <motion.img
-                src={PhotoOne} alt="me"
-                initial={{rotate: 5, x: 30}}
+                src={PhotoTwo} alt="me too"
+                initial={{rotate: -5, x: 17, y: -5}}
                 />
                 <motion.img
-                src={PhotoTwo} alt="me too"
-                initial={{rotate: -5, x: -84, y: -5}}
+                src={PhotoOne} alt="me"
+                initial={{rotate: 5, x: -80}}
                 />
             </aside>
             <article className={styles.aboutContent}>
