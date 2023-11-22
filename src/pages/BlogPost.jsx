@@ -27,9 +27,7 @@ const BlogPost = () => {
         <section>
             <p>{post.content}</p>
         </section>
-
     );
-
 };
 
 export default BlogPost;

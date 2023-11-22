@@ -1,13 +1,17 @@
 
 import styles from "../styles/blog.module.css";
 import data from "../blog.json";
+import BlogPost from "./BlogPost";
 
 import React, { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import BlogPost from "./BlogPost";
 
 const Blog = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const location = useLocation();
     const [isBlogPost, setIsBlogPost] = useState(false);
@@ -63,8 +67,7 @@ return (
                 ))}
             </ul>
         </section>
-    )
-        
+    )    
 );
 
 };
