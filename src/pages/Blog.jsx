@@ -38,7 +38,9 @@ const Blog = () => {
         year: 'numeric',
     });
 
-    // function to read number of blog posts and show him on "X"
+    const numOFPosts = (data) => {
+        return data.length;
+    };
 
     const convertPostsToArray = (object) => {
         return Object.keys(object).map((id) => object[id]);
@@ -54,7 +56,7 @@ return (
     ) : (
         <section className={styles.sectionBlog}>
             <h3>Blog</h3>
-            <p>"X" posts about stuff what matter...</p>
+            <p>{numOFPosts(postsArray)} posts about stuff what matter...</p>
             <ul>
                 {postsArray.map((post) => (
                     <motion.li

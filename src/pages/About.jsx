@@ -1,7 +1,7 @@
 
 import styles from "../styles/about.module.css";
-import PhotoOne from "../images/aboutPhoto.webp";
-import PhotoTwo from "../images/aboutPhotoTwo.webp";
+import PhotoOne from "../images/aboutPhotoResize.webp";
+import PhotoTwo from "../images/aboutPhotoTwoResize.webp";
 import { ReactComponent as Github } from "../images/github.svg";
 import { ReactComponent as LinkedIn } from "../images/linkedin.svg";
 import { ReactComponent as Gmail } from "../images/gmail.svg";
