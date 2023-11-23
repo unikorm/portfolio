@@ -5,4 +5,5 @@
     justify-content: center;
     max-width: 950px;
     width: 100%;
+    overflow: hidden;
 }
