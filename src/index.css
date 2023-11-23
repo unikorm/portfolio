@@ -16,6 +16,10 @@ body {
 #dark,
 #light {
     min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* #dark {

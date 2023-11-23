@@ -2,6 +2,8 @@
 import styles from "../styles/about.module.css";
 import PhotoOne from "../images/aboutPhotoResize.webp";
 import PhotoTwo from "../images/aboutPhotoTwoResize.webp";
+import PhotoThree from "../images/aboutThree.jpg";
+import PhotoFour from "../images/aboutFour.jpg";
 import { ReactComponent as Github } from "../images/github.svg";
 import { ReactComponent as LinkedIn } from "../images/linkedin.svg";
 import { ReactComponent as Gmail } from "../images/gmail.svg";
@@ -20,14 +22,26 @@ const About = () => {
         <section className={styles.sectionAbout}>
             <h3>Just a quick glimpse</h3>
             <span>about ME</span>
-            <aside>
-                <motion.img
-                src={PhotoTwo} alt="me too"
-                initial={{rotate: -5, x: 17, y: -5}}
-                />
+            <aside className={styles.asidePhoto}>
                 <motion.img
                 src={PhotoOne} alt="me"
-                initial={{rotate: 5, x: -80}}
+                initial={{rotate: -5}}
+                whileHover={{rotate: 5}}
+                />
+                <motion.img
+                src={PhotoTwo} alt="me too"
+                initial={{rotate: 9}}
+                whileHover={{rotate: -9}}
+                />
+                <motion.img
+                src={PhotoThree} alt="tooo"
+                initial={{rotate: -9}}
+                whileHover={{rotate: 9}}
+                />
+                <motion.img
+                src={PhotoFour} alt="tooooo"
+                initial={{rotate: 4}}
+                whileHover={{rotate: -4}}
                 />
             </aside>
             <article className={styles.aboutContent}>
@@ -35,7 +49,7 @@ const About = () => {
                 <p>hi everybody, i'm men who love life. enjoy him, mainly while running, hiking, reading and creating stuff with code.</p>
                 <p>and what is my strong side, i think mainly improvisation in everything, simple asimilation to actual condition and i think i like problem-solving...</p>
                 <p>now about coding. my first and prefered language is <span>JavaScript</span>, but in the future i want write <span>TypeScript</span>, then in <span>HTML</span> and <span>CSS</span> i have strong foundation. from more specific technology is my favorite <span>REACT.js</span>, and i want learn <span>NEXT.js</span> above it, then <span>GIT</span> and basic of <span>SQL</span> is standart. and i have on list <span>Node.JS</span>, more on <span>SQL</span> and diveing deeper into frontend development universe.</p>
-                <aside>
+                <aside className={styles.asideContact}>
                     <h5>connect</h5>
                     <ul>
                         <motion.li 

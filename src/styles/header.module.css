@@ -3,7 +3,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    align-self: stretch;
     padding: .85rem .8rem 0 .95rem;
+    max-width: 950px;
 }
 
 header a {
