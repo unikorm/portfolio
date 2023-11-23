@@ -39,7 +39,8 @@ const Blog = () => {
     });
 
     const numOFPosts = (data) => {
-        return data.length;
+        const postCount = data.length;
+        return `${postCount} ${postCount > 1 ? "posts" : "post"}`;
     };
 
     const convertPostsToArray = (object) => {
@@ -56,7 +57,7 @@ return (
     ) : (
         <section className={styles.sectionBlog}>
             <h3>Blog</h3>
-            <p>{numOFPosts(postsArray)} posts about stuff what matter...</p>
+            <p>{numOFPosts(postsArray)} about stuff what matter...</p>
             <ul>
                 {postsArray.map((post) => (
                     <motion.li

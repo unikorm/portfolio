@@ -1,5 +1,6 @@
 
 import Header from "./Header";
+import styles from "../styles/root.module.css";
 
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
@@ -71,10 +72,10 @@ const Root = () => {
 
 
     return (
-        <React.Fragment>
+        <section className={styles.rootSection}>
             <Header />
             <Outlet />
-        </React.Fragment>
+        </section>
     );
 };
 

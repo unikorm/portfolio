@@ -1,0 +1,8 @@
+
+.rootSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 950px;
+    width: 100%;
+}

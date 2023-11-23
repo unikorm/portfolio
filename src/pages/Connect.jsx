@@ -1,6 +1,6 @@
 
 import styles from "../styles/connect.module.css";
-import profilePhoto from "../images/profile.webp";
+import profilePhoto from "../images/profile.jpeg";
 import { ReactComponent as Github } from "../images/github.svg";
 import { ReactComponent as LinkedIn } from "../images/linkedin.svg";
 import { ReactComponent as Gmail } from "../images/gmail.svg";

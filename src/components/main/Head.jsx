@@ -1,6 +1,6 @@
 
 import styles from "../../styles/head.module.css";
-import profilePhoto from "../../images/profile.webp";
+import profilePhoto from "../../images/profile.jpeg";
 import { token } from "../../privat";
 import { ReactComponent as ArrowIcon } from "../../images/arrow.svg";
 
